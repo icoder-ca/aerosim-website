@@ -5,7 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AeroSIM — First Thing You'll Need When You Land</title>
     <meta name="description" content="AeroSIM delivers instant eSIM connectivity the moment you land. Most competitive rates, 190+ countries, native iOS app.">
+
+    <!-- Open Graph — iMessage, WhatsApp, Facebook, LinkedIn previews -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aerosim.global/">
+    <meta property="og:title" content="AeroSIM — First Thing You'll Need When You Land">
+    <meta property="og:description" content="Instant eSIM data the moment you land. 190+ countries, most competitive rates, native iOS app with in-app flight tracking.">
+    <meta property="og:image" content="https://aerosim.global/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="AeroSIM">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AeroSIM — First Thing You'll Need When You Land">
+    <meta name="twitter:description" content="Instant eSIM data the moment you land. 190+ countries, most competitive rates, native iOS app with in-app flight tracking.">
+    <meta name="twitter:image" content="https://aerosim.global/assets/og-image.png">
+
+    <!-- Apple-specific -->
+    <meta name="apple-mobile-web-app-title" content="AeroSIM">
+
     <link rel="icon" type="image/png" href="assets/aerosim.png">
+    <link rel="apple-touch-icon" href="assets/aerosim.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -22,6 +43,7 @@
             --accent-blue: #007AFF;
             --accent-purple: #AF52DE;
             --gradient: linear-gradient(135deg, #007AFF, #AF52DE);
+            --brand-gradient: linear-gradient(135deg, #5A8FA0, #8B3A3A);
         }
 
         html { scroll-behavior: smooth; }
@@ -78,7 +100,7 @@
             font-size: 17px;
             font-weight: 700;
             letter-spacing: -0.3px;
-            background: var(--gradient);
+            background: var(--brand-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -170,17 +192,15 @@
             backdrop-filter: blur(20px);
         }
 
-        .hero-badge .dot {
-            width: 6px;
-            height: 6px;
-            background: #34C759;
-            border-radius: 50%;
+        .hero-badge .pulse-emoji {
+            font-size: 14px;
             animation: pulse 2s ease-in-out infinite;
+            line-height: 1;
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.4; }
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(0.9); }
         }
 
         .hero h1 {
@@ -194,6 +214,12 @@
 
         .hero h1 .gradient-text {
             background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero h1 .brand-text {
+            background: var(--brand-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -712,7 +738,7 @@
         .footer-logo span {
             font-weight: 700;
             font-size: 15px;
-            background: var(--gradient);
+            background: var(--brand-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -795,13 +821,13 @@
 <!-- ============ HERO ============ -->
 <section class="hero">
     <div class="hero-badge reveal">
-        <span class="dot"></span>
-        Available on the App Store
+        <span class="pulse-emoji">🌎</span>
+        Available on the App Store Globally
     </div>
 
     <h1 class="reveal reveal-delay-1">
         First thing you'll<br>need when you
-        <span class="gradient-text">land.</span>
+        <span class="brand-text">land.</span>
     </h1>
 
     <p class="hero-sub reveal reveal-delay-2">
