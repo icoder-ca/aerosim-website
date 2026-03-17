@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AeroSIM — First Thing You'll Need When You Land</title>
+    <title>AeroSIM | First Thing You'll Need When You Land</title>
     <meta name="description" content="AeroSIM delivers instant eSIM connectivity the moment you land. Most competitive rates, 190+ countries, native iOS app.">
 
     <!-- Open Graph — iMessage, WhatsApp, Facebook, LinkedIn previews -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://aerosim.global/">
-    <meta property="og:title" content="AeroSIM — First Thing You'll Need When You Land">
+    <meta property="og:title" content="AeroSIM | First Thing You'll Need When You Land">
     <meta property="og:description" content="Instant eSIM data the moment you land. 190+ countries, most competitive rates, native iOS app with in-app flight tracking.">
     <meta property="og:image" content="https://aerosim.global/assets/og-image.png">
     <meta property="og:image:width" content="1200">
@@ -18,7 +18,7 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AeroSIM — First Thing You'll Need When You Land">
+    <meta name="twitter:title" content="AeroSIM | First Thing You'll Need When You Land">
     <meta name="twitter:description" content="Instant eSIM data the moment you land. 190+ countries, most competitive rates, native iOS app with in-app flight tracking.">
     <meta name="twitter:image" content="https://aerosim.global/assets/og-image.png">
 
@@ -43,7 +43,7 @@
             --accent-blue: #007AFF;
             --accent-purple: #AF52DE;
             --gradient: linear-gradient(135deg, #007AFF, #AF52DE);
-            --brand-gradient: linear-gradient(135deg, #5A8FA0, #8B3A3A);
+            --brand-gradient: linear-gradient(135deg, #1e6882, #5c2a2d);
         }
 
         html { scroll-behavior: smooth; }
@@ -91,9 +91,9 @@
         }
 
         .nav-logo img {
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
         }
 
         .nav-logo span {
@@ -367,25 +367,24 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             grid-template-rows: auto;
-            gap: 16px;
+            gap: 12px;
             margin-top: 64px;
         }
 
         .bento-card {
             background: #111113;
-            border-radius: 24px;
-            padding: 32px;
+            border-radius: 20px;
+            padding: 28px 24px;
             position: relative;
             overflow: hidden;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            min-height: 220px;
         }
 
         .bento-card:hover {
-            transform: scale(1.015);
+            transform: scale(1.012);
         }
 
         .bento-card .bento-visual {
@@ -393,60 +392,49 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding-bottom: 16px;
+            padding-bottom: 12px;
         }
 
         .bento-card .bento-visual .bento-emoji {
-            font-size: 52px;
-            filter: drop-shadow(0 4px 24px rgba(0,0,0,0.4));
+            font-size: 44px;
+            filter: drop-shadow(0 4px 20px rgba(0,0,0,0.4));
         }
 
         .bento-card .bento-label {
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1.2px;
-            color: rgba(255,255,255,0.35);
-            margin-bottom: 6px;
+            color: rgba(255,255,255,0.3);
+            margin-bottom: 4px;
         }
 
         .bento-card h3 {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 700;
             letter-spacing: -0.4px;
             line-height: 1.25;
             color: #fff;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
         .bento-card p {
-            color: rgba(255,255,255,0.5);
-            font-size: 14px;
-            line-height: 1.5;
+            color: rgba(255,255,255,0.45);
+            font-size: 13px;
+            line-height: 1.45;
         }
 
-        /* hero card — spans 2 cols */
         .bento-hero {
             grid-column: span 2;
-            min-height: 300px;
             background: linear-gradient(145deg, #0c1a2e 0%, #111113 100%);
         }
-        .bento-hero .bento-visual .bento-emoji { font-size: 72px; }
-        .bento-hero h3 { font-size: 28px; }
+        .bento-hero .bento-visual .bento-emoji { font-size: 64px; }
+        .bento-hero h3 { font-size: 26px; }
 
-        /* wide card — spans 2 cols */
-        .bento-wide {
-            grid-column: span 2;
-            min-height: 240px;
-        }
+        .bento-wide { grid-column: span 2; }
 
-        /* tall card — spans 2 rows */
-        .bento-tall {
-            grid-row: span 2;
-            min-height: 420px;
-        }
+        .bento-tall { grid-row: span 2; }
 
-        /* accent tints per card */
         .bento-tint-blue { background: linear-gradient(165deg, rgba(0,122,255,0.12) 0%, #111113 60%); }
         .bento-tint-teal { background: linear-gradient(165deg, rgba(90,143,160,0.15) 0%, #111113 60%); }
         .bento-tint-red { background: linear-gradient(165deg, rgba(139,58,58,0.15) 0%, #111113 60%); }
@@ -454,21 +442,19 @@
         .bento-tint-purple { background: linear-gradient(165deg, rgba(175,82,222,0.12) 0%, #111113 60%); }
         .bento-tint-gold { background: linear-gradient(165deg, rgba(210,170,60,0.12) 0%, #111113 60%); }
 
-        /* highlight text inside cards */
         .bento-card .hl-blue { color: #5AC8FA; }
-        .bento-card .hl-teal { color: #5A8FA0; }
+        .bento-card .hl-teal { color: #3d8ba6; }
         .bento-card .hl-red { color: #C45C5C; }
         .bento-card .hl-green { color: #34C759; }
         .bento-card .hl-purple { color: #BF5AF2; }
         .bento-card .hl-gold { color: #D4A83A; }
 
-        /* stat callout inside bento */
         .bento-stat {
-            font-size: 48px;
+            font-size: 44px;
             font-weight: 800;
             letter-spacing: -2px;
             line-height: 1;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         /* ============ HOW IT WORKS ============ */
@@ -662,7 +648,8 @@
             width: 40px;
             height: 40px;
             border-radius: 10px;
-            background: var(--gradient);
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.08);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -783,7 +770,7 @@
             gap: 10px;
         }
 
-        .footer-logo img { width: 28px; height: 28px; border-radius: 6px; }
+        .footer-logo img { width: 30px; height: 30px; object-fit: contain; }
 
         .footer-logo span {
             font-weight: 700;
@@ -834,10 +821,15 @@
                 gap: 8px;
             }
             .nav-mobile-toggle { display: block; }
-            .bento-grid { grid-template-columns: 1fr 1fr; }
+            .bento-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
             .bento-hero, .bento-wide { grid-column: span 2; }
-            .bento-tall { grid-row: span 1; min-height: 240px; }
-            .bento-card { min-height: 200px; }
+            .bento-tall { grid-row: span 1; }
+            .bento-card { padding: 22px 20px; border-radius: 16px; }
+            .bento-card h3 { font-size: 18px; }
+            .bento-hero h3 { font-size: 22px; }
+            .bento-card .bento-visual .bento-emoji { font-size: 36px; }
+            .bento-hero .bento-visual .bento-emoji { font-size: 52px; }
+            .bento-stat { font-size: 36px; }
             .steps { grid-template-columns: 1fr; gap: 32px; }
             .coverage-stats { grid-template-columns: repeat(2, 1fr); }
             .aerobucks-layout { grid-template-columns: 1fr; gap: 48px; }
@@ -851,10 +843,18 @@
             .hero h1 { letter-spacing: -1px; }
             .coverage-stats { grid-template-columns: 1fr 1fr; }
             .phone-mockup { width: 240px; height: 500px; }
-            .bento-grid { grid-template-columns: 1fr; }
-            .bento-hero, .bento-wide { grid-column: span 1; }
-            .bento-tall { grid-row: span 1; min-height: 220px; }
-            .bento-stat { font-size: 36px; }
+            .bento-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+            .bento-hero, .bento-wide { grid-column: span 2; }
+            .bento-tall { grid-row: span 1; }
+            .bento-card { padding: 18px 16px; border-radius: 14px; }
+            .bento-card h3 { font-size: 16px; }
+            .bento-hero h3 { font-size: 20px; }
+            .bento-card p { font-size: 12px; }
+            .bento-card .bento-label { font-size: 9px; }
+            .bento-card .bento-visual { padding-bottom: 8px; }
+            .bento-card .bento-visual .bento-emoji { font-size: 32px; }
+            .bento-hero .bento-visual .bento-emoji { font-size: 44px; }
+            .bento-stat { font-size: 32px; }
         }
     </style>
 </head>
@@ -888,7 +888,7 @@
     </h1>
 
     <p class="hero-sub reveal reveal-delay-2">
-        Instant eSIM connectivity the moment you touch down. No SIM swaps, no roaming fees — just open the app and go.
+        Instant eSIM connectivity the moment you touch down. No SIM swaps, no roaming fees. Just open the app and go.
     </p>
 
     <div class="hero-ctas reveal reveal-delay-3">
@@ -912,7 +912,7 @@
     <div class="container">
         <div class="section-label reveal">Overview</div>
         <h2 class="section-title reveal">Connectivity,<br><span class="brand-text">reimagined.</span></h2>
-        <p class="section-desc reveal">Built from the ground up as a native iOS experience. AeroSIM gives you instant data the second you land — all you need is WiFi to install.</p>
+        <p class="section-desc reveal">Built from the ground up as a native iOS experience. AeroSIM gives you instant data the second you land. All you need is WiFi to install.</p>
 
         <div class="bento-grid">
 
@@ -923,7 +923,7 @@
                 </div>
                 <div class="bento-label">Instant Activation</div>
                 <h3>Online in <span class="hl-blue">seconds.</span></h3>
-                <p>Hit the ground, connect to WiFi, install your eSIM. That's it — you're connected before you leave the terminal.</p>
+                <p>Hit the ground, connect to WiFi, install your eSIM. You're connected before you leave the terminal.</p>
             </div>
 
             <div class="bento-card bento-tall bento-tint-teal reveal reveal-delay-2">
@@ -959,7 +959,7 @@
                     <span class="bento-emoji">🔄</span>
                     <div style="text-align: left;">
                         <div class="bento-stat hl-purple">∞</div>
-                        <p style="color: rgba(255,255,255,0.5); font-size: 14px; margin: 0;">Never run out of data. Auto top-up keeps you connected 24/7 — set it once and forget it.</p>
+                        <p style="color: rgba(255,255,255,0.5); font-size: 14px; margin: 0;">Never run out of data. Auto top-up keeps you connected 24/7. Set it once and forget it.</p>
                     </div>
                 </div>
                 <div class="bento-label">Auto Top-Up</div>
@@ -972,7 +972,7 @@
                     <span class="bento-emoji" style="font-size:64px;">✈️</span>
                     <div style="text-align: left;">
                         <div class="bento-stat hl-red">Live</div>
-                        <p style="color: rgba(255,255,255,0.5); font-size: 14px; margin: 0;">Real-time flight tracking with gate changes, delays, and arrival updates — built right into the app.</p>
+                        <p style="color: rgba(255,255,255,0.5); font-size: 14px; margin: 0;">Real-time flight tracking with gate changes, delays, and arrival updates. Built right into the app.</p>
                     </div>
                 </div>
                 <div class="bento-label">Flight Tracking</div>
@@ -1009,12 +1009,12 @@
             <div class="step reveal reveal-delay-1">
                 <div class="step-number">1</div>
                 <h3>Choose Your Destination</h3>
-                <p>Browse 190+ countries. Pick a plan that fits your trip — from a quick weekend to an extended stay.</p>
+                <p>Browse 190+ countries. Pick a plan that fits your trip, from a quick weekend to an extended stay.</p>
             </div>
             <div class="step reveal reveal-delay-2">
                 <div class="step-number">2</div>
                 <h3>Purchase & Install</h3>
-                <p>Pay with Apple Pay or card. Your eSIM installs instantly — just connect to any WiFi network.</p>
+                <p>Pay with Apple Pay or card. Your eSIM installs instantly. Just connect to any WiFi network.</p>
             </div>
             <div class="step reveal reveal-delay-3">
                 <div class="step-number">3</div>
@@ -1085,21 +1085,21 @@
                     <div class="tier-badge silver">🥈</div>
                     <div class="tier-info">
                         <h4>Silver</h4>
-                        <p>1.5x points — $50+ lifetime spend</p>
+                        <p>1.5x points at $50+ lifetime spend</p>
                     </div>
                 </div>
                 <div class="tier-card reveal reveal-delay-3">
                     <div class="tier-badge gold">🥇</div>
                     <div class="tier-info">
                         <h4>Gold</h4>
-                        <p>2x points — $150+ lifetime spend</p>
+                        <p>2x points at $150+ lifetime spend</p>
                     </div>
                 </div>
                 <div class="tier-card reveal reveal-delay-4">
                     <div class="tier-badge platinum">💎</div>
                     <div class="tier-info">
                         <h4>Platinum</h4>
-                        <p>3x points — $500+ lifetime spend</p>
+                        <p>3x points at $500+ lifetime spend</p>
                     </div>
                 </div>
             </div>
@@ -1118,7 +1118,7 @@
             <div>
                 <div class="section-label reveal">In-App Flight Tracking</div>
                 <h2 class="section-title reveal">Your trip,<br><span class="gradient-text">all in one place.</span></h2>
-                <p class="section-desc reveal" style="margin-bottom: 40px;">Track flights in real-time without leaving the app. Departures, arrivals, gate changes — everything a traveler needs.</p>
+                <p class="section-desc reveal" style="margin-bottom: 40px;">Track flights in real-time without leaving the app. Departures, arrivals, gate changes. Everything a traveler needs.</p>
                 <div class="flight-features">
                     <div class="flight-feature reveal reveal-delay-1">
                         <div class="flight-feature-icon">🛫</div>
@@ -1152,7 +1152,7 @@
     <div class="container">
         <div class="section-label reveal">The App</div>
         <h2 class="section-title reveal">Designed for <span class="gradient-text">iPhone.</span></h2>
-        <p class="section-desc reveal" style="margin: 0 auto;">A native iOS experience built with SwiftUI. Every pixel, every animation, every interaction — crafted for Apple.</p>
+        <p class="section-desc reveal" style="margin: 0 auto;">A native iOS experience built with SwiftUI. Every pixel, every animation, every interaction. Crafted for Apple.</p>
 
         <div class="showcase-phones">
             <div class="showcase-phone reveal reveal-delay-1">
