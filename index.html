@@ -999,13 +999,31 @@
 
             <div class="bento-card b-fiveg reveal reveal-delay-2" style="background: linear-gradient(165deg, rgba(139,58,58,0.1) 0%, #111113 60%);">
                 <div class="bento-visual" style="flex-direction: column; gap: 8px;">
-                    <svg class="pulse-tower" width="40" height="40" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="12.5" y="11" width="3" height="11" rx="1.5" fill="url(#ag)"/>
-                        <circle cx="14" cy="9" r="2" fill="url(#ag)"/>
-                        <path d="M8.5 18.5c-1.5-1.8-2.3-4-2.3-6.5 0-4.3 3.5-7.8 7.8-7.8s7.8 3.5 7.8 7.8c0 2.5-.8 4.7-2.3 6.5" stroke="url(#ag)" stroke-width="1.6" stroke-linecap="round" opacity="0.35"/>
-                        <path d="M10 16.5c-1-1.3-1.6-2.8-1.6-4.5 0-3.1 2.5-5.6 5.6-5.6s5.6 2.5 5.6 5.6c0 1.7-.6 3.2-1.6 4.5" stroke="url(#ag)" stroke-width="1.6" stroke-linecap="round" opacity="0.6"/>
-                        <path d="M11.5 14.8c-.6-.9-.9-1.8-.9-2.8 0-1.9 1.5-3.4 3.4-3.4s3.4 1.5 3.4 3.4c0 1-.3 1.9-.9 2.8" stroke="url(#ag)" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
-                        <defs><linearGradient id="ag" x1="4" y1="4" x2="24" y2="24"><stop stop-color="#5AC8FA"/><stop offset="1" stop-color="#C45C5C"/></linearGradient></defs>
+                    <svg class="pulse-tower" width="44" height="44" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Tower base -->
+                        <path d="M13.5 28h5" stroke="url(#ag)" stroke-width="1.8" stroke-linecap="round"/>
+                        <!-- Tower legs -->
+                        <path d="M14.5 28L15.2 18" stroke="url(#ag)" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M17.5 28L16.8 18" stroke="url(#ag)" stroke-width="1.5" stroke-linecap="round"/>
+                        <!-- Tower body -->
+                        <rect x="15" y="12" width="2" height="6.5" rx="1" fill="url(#ag)"/>
+                        <!-- Tower top / antenna tip -->
+                        <rect x="15.5" y="9" width="1" height="3.5" rx="0.5" fill="url(#ag)"/>
+                        <circle cx="16" cy="8.5" r="1.2" fill="url(#ag)"/>
+                        <!-- Cross beams -->
+                        <path d="M14.8 22L17.2 20" stroke="url(#ag)" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
+                        <path d="M14.8 20L17.2 22" stroke="url(#ag)" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
+                        <path d="M15 25L17 23.5" stroke="url(#ag)" stroke-width="0.8" stroke-linecap="round" opacity="0.4"/>
+                        <path d="M15 23.5L17 25" stroke="url(#ag)" stroke-width="0.8" stroke-linecap="round" opacity="0.4"/>
+                        <!-- Radio waves left -->
+                        <path d="M12.5 13.5c-0.8-1-1.2-2.2-1.2-3.5" stroke="url(#ag)" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/>
+                        <path d="M10.5 15c-1.2-1.5-1.9-3.4-1.9-5.5" stroke="url(#ag)" stroke-width="1.5" stroke-linecap="round" opacity="0.55"/>
+                        <path d="M8.5 16.5c-1.5-2-2.4-4.5-2.4-7.2" stroke="url(#ag)" stroke-width="1.5" stroke-linecap="round" opacity="0.25"/>
+                        <!-- Radio waves right -->
+                        <path d="M19.5 13.5c0.8-1 1.2-2.2 1.2-3.5" stroke="url(#ag)" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/>
+                        <path d="M21.5 15c1.2-1.5 1.9-3.4 1.9-5.5" stroke="url(#ag)" stroke-width="1.5" stroke-linecap="round" opacity="0.55"/>
+                        <path d="M23.5 16.5c1.5-2 2.4-4.5 2.4-7.2" stroke="url(#ag)" stroke-width="1.5" stroke-linecap="round" opacity="0.25"/>
+                        <defs><linearGradient id="ag" x1="6" y1="6" x2="26" y2="28"><stop stop-color="#5AC8FA"/><stop offset="1" stop-color="#C45C5C"/></linearGradient></defs>
                     </svg>
                     <div class="bento-stat" style="background: var(--brand-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">5G</div>
                 </div>
