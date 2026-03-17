@@ -365,12 +365,12 @@
 
         .bento-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             grid-template-areas:
-                "hero     hero    rates"
-                "security ios     ios"
-                "topup    topup   fiveg"
-                "flight   flight  stat190";
+                "hero     hero    ios     rates"
+                "security security ios    topup"
+                "flight   flight  fiveg   topup"
+                "flight   flight  stat190 stat190";
             gap: 12px;
             margin-top: 64px;
         }
@@ -831,9 +831,8 @@
                 grid-template-columns: 1fr 1fr;
                 grid-template-areas:
                     "hero     hero"
-                    "rates    security"
-                    "ios      ios"
-                    "topup    topup"
+                    "ios      rates"
+                    "security topup"
                     "flight   flight"
                     "fiveg    stat190";
                 gap: 10px;
@@ -861,9 +860,8 @@
                 grid-template-columns: 1fr 1fr;
                 grid-template-areas:
                     "hero     hero"
-                    "rates    security"
-                    "ios      ios"
-                    "topup    topup"
+                    "ios      rates"
+                    "security topup"
                     "flight   flight"
                     "fiveg    stat190";
                 gap: 8px;
