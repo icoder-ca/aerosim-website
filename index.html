@@ -365,11 +365,24 @@
 
         .bento-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: auto;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-areas:
+                "hero     hero    rates"
+                "security ios     ios"
+                "topup    topup   fiveg"
+                "flight   flight  stat190";
             gap: 12px;
             margin-top: 64px;
         }
+
+        .b-hero     { grid-area: hero; }
+        .b-rates    { grid-area: rates; }
+        .b-security { grid-area: security; }
+        .b-ios      { grid-area: ios; }
+        .b-topup    { grid-area: topup; }
+        .b-fiveg    { grid-area: fiveg; }
+        .b-flight   { grid-area: flight; }
+        .b-stat190  { grid-area: stat190; }
 
         .bento-card {
             background: #111113;
@@ -383,9 +396,7 @@
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .bento-card:hover {
-            transform: scale(1.012);
-        }
+        .bento-card:hover { transform: scale(1.012); }
 
         .bento-card .bento-visual {
             flex: 1;
@@ -424,16 +435,11 @@
             line-height: 1.45;
         }
 
-        .bento-hero {
-            grid-column: span 2;
+        .b-hero {
             background: linear-gradient(145deg, #0c1a2e 0%, #111113 100%);
         }
-        .bento-hero .bento-visual .bento-emoji { font-size: 64px; }
-        .bento-hero h3 { font-size: 26px; }
-
-        .bento-wide { grid-column: span 2; }
-
-        .bento-tall { grid-row: span 2; }
+        .b-hero .bento-visual .bento-emoji { font-size: 64px; }
+        .b-hero h3 { font-size: 26px; }
 
         .bento-tint-blue { background: linear-gradient(165deg, rgba(0,122,255,0.12) 0%, #111113 60%); }
         .bento-tint-teal { background: linear-gradient(165deg, rgba(90,143,160,0.15) 0%, #111113 60%); }
@@ -821,14 +827,22 @@
                 gap: 8px;
             }
             .nav-mobile-toggle { display: block; }
-            .bento-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-            .bento-hero, .bento-wide { grid-column: span 2; }
-            .bento-tall { grid-row: span 1; }
+            .bento-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-template-areas:
+                    "hero     hero"
+                    "rates    security"
+                    "ios      ios"
+                    "topup    topup"
+                    "flight   flight"
+                    "fiveg    stat190";
+                gap: 10px;
+            }
             .bento-card { padding: 22px 20px; border-radius: 16px; }
             .bento-card h3 { font-size: 18px; }
-            .bento-hero h3 { font-size: 22px; }
+            .b-hero h3 { font-size: 22px; }
             .bento-card .bento-visual .bento-emoji { font-size: 36px; }
-            .bento-hero .bento-visual .bento-emoji { font-size: 52px; }
+            .b-hero .bento-visual .bento-emoji { font-size: 52px; }
             .bento-stat { font-size: 36px; }
             .steps { grid-template-columns: 1fr; gap: 32px; }
             .coverage-stats { grid-template-columns: repeat(2, 1fr); }
@@ -843,17 +857,25 @@
             .hero h1 { letter-spacing: -1px; }
             .coverage-stats { grid-template-columns: 1fr 1fr; }
             .phone-mockup { width: 240px; height: 500px; }
-            .bento-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
-            .bento-hero, .bento-wide { grid-column: span 2; }
-            .bento-tall { grid-row: span 1; }
+            .bento-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-template-areas:
+                    "hero     hero"
+                    "rates    security"
+                    "ios      ios"
+                    "topup    topup"
+                    "flight   flight"
+                    "fiveg    stat190";
+                gap: 8px;
+            }
             .bento-card { padding: 18px 16px; border-radius: 14px; }
             .bento-card h3 { font-size: 16px; }
-            .bento-hero h3 { font-size: 20px; }
+            .b-hero h3 { font-size: 20px; }
             .bento-card p { font-size: 12px; }
             .bento-card .bento-label { font-size: 9px; }
             .bento-card .bento-visual { padding-bottom: 8px; }
             .bento-card .bento-visual .bento-emoji { font-size: 32px; }
-            .bento-hero .bento-visual .bento-emoji { font-size: 44px; }
+            .b-hero .bento-visual .bento-emoji { font-size: 44px; }
             .bento-stat { font-size: 32px; }
         }
     </style>
@@ -916,8 +938,7 @@
 
         <div class="bento-grid">
 
-            <!-- ROW 1: Hero (2 col) + Tall right card (1 col, spans 2 rows) + standard card -->
-            <div class="bento-card bento-hero bento-tint-blue reveal reveal-delay-1">
+            <div class="bento-card b-hero bento-tint-blue reveal reveal-delay-1">
                 <div class="bento-visual">
                     <span class="bento-emoji">⚡</span>
                 </div>
@@ -926,16 +947,7 @@
                 <p>Hit the ground, connect to WiFi, install your eSIM. You're connected before you leave the terminal.</p>
             </div>
 
-            <div class="bento-card bento-tall bento-tint-teal reveal reveal-delay-2">
-                <div class="bento-visual">
-                    <span class="bento-emoji" style="font-size:64px;">📱</span>
-                </div>
-                <div class="bento-label">Native iOS</div>
-                <h3>Built for <span class="hl-teal">Apple.</span></h3>
-                <p>SwiftUI from the ground up. iPhone and iPad. Buttery smooth, no compromises.</p>
-            </div>
-
-            <div class="bento-card bento-tint-gold reveal reveal-delay-3">
+            <div class="bento-card b-rates bento-tint-gold reveal reveal-delay-2">
                 <div class="bento-visual">
                     <span class="bento-emoji">💰</span>
                 </div>
@@ -944,8 +956,7 @@
                 <p>Multiple suppliers, one best price. Guaranteed.</p>
             </div>
 
-            <!-- ROW 2: Standard card + Wide card (2 col) — tall card continues from above -->
-            <div class="bento-card bento-tint-green reveal reveal-delay-1">
+            <div class="bento-card b-security bento-tint-green reveal reveal-delay-1">
                 <div class="bento-visual">
                     <span class="bento-emoji">🔒</span>
                 </div>
@@ -954,45 +965,53 @@
                 <p>End-to-end encrypted. Your data stays yours.</p>
             </div>
 
-            <div class="bento-card bento-wide bento-tint-purple reveal reveal-delay-2">
-                <div class="bento-visual" style="flex-direction: row; gap: 32px;">
+            <div class="bento-card b-ios bento-tint-teal reveal reveal-delay-2">
+                <div class="bento-visual">
+                    <span class="bento-emoji" style="font-size:56px;">📱</span>
+                </div>
+                <div class="bento-label">Native iOS</div>
+                <h3>Built for <span class="hl-teal">Apple.</span></h3>
+                <p>SwiftUI from the ground up. iPhone and iPad. Buttery smooth, no compromises.</p>
+            </div>
+
+            <div class="bento-card b-topup bento-tint-purple reveal reveal-delay-1">
+                <div class="bento-visual" style="flex-direction: row; gap: 24px;">
                     <span class="bento-emoji">🔄</span>
                     <div style="text-align: left;">
                         <div class="bento-stat hl-purple">∞</div>
-                        <p style="color: rgba(255,255,255,0.5); font-size: 14px; margin: 0;">Never run out of data. Auto top-up keeps you connected 24/7. Set it once and forget it.</p>
+                        <p style="color: rgba(255,255,255,0.45); font-size: 13px; margin: 0;">Never run out of data. Auto top-up keeps you connected 24/7. Set it once and forget it.</p>
                     </div>
                 </div>
                 <div class="bento-label">Auto Top-Up</div>
                 <h3>Always-on <span class="hl-purple">data.</span></h3>
             </div>
 
-            <!-- ROW 3: Wide flight card (2 col) + 2 stat cards -->
-            <div class="bento-card bento-wide bento-tint-red reveal reveal-delay-1">
-                <div class="bento-visual" style="flex-direction: row; gap: 32px;">
-                    <span class="bento-emoji" style="font-size:64px;">✈️</span>
+            <div class="bento-card b-fiveg reveal reveal-delay-2" style="background: linear-gradient(165deg, rgba(139,58,58,0.1) 0%, #111113 60%);">
+                <div class="bento-visual">
+                    <div class="bento-stat" style="background: var(--brand-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">5G</div>
+                </div>
+                <h3>Ready.</h3>
+                <p>Blazing fast where available.</p>
+            </div>
+
+            <div class="bento-card b-flight bento-tint-red reveal reveal-delay-1">
+                <div class="bento-visual" style="flex-direction: row; gap: 24px;">
+                    <span class="bento-emoji" style="font-size:56px;">✈️</span>
                     <div style="text-align: left;">
                         <div class="bento-stat hl-red">Live</div>
-                        <p style="color: rgba(255,255,255,0.5); font-size: 14px; margin: 0;">Real-time flight tracking with gate changes, delays, and arrival updates. Built right into the app.</p>
+                        <p style="color: rgba(255,255,255,0.45); font-size: 13px; margin: 0;">Real-time flight tracking with gate changes, delays, and arrival updates. Built right into the app.</p>
                     </div>
                 </div>
                 <div class="bento-label">Flight Tracking</div>
                 <h3>Your flight, <span class="hl-red">tracked.</span></h3>
             </div>
 
-            <div class="bento-card reveal reveal-delay-2" style="background: linear-gradient(165deg, rgba(90,143,160,0.1) 0%, #111113 60%);">
+            <div class="bento-card b-stat190 reveal reveal-delay-2" style="background: linear-gradient(165deg, rgba(90,143,160,0.1) 0%, #111113 60%);">
                 <div class="bento-visual">
                     <div class="bento-stat" style="background: var(--brand-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">190+</div>
                 </div>
                 <h3>Countries.</h3>
                 <p>Global coverage, one app.</p>
-            </div>
-
-            <div class="bento-card reveal reveal-delay-3" style="background: linear-gradient(165deg, rgba(139,58,58,0.1) 0%, #111113 60%);">
-                <div class="bento-visual">
-                    <div class="bento-stat" style="background: var(--brand-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">5G</div>
-                </div>
-                <h3>Ready.</h3>
-                <p>Blazing fast where available.</p>
             </div>
 
         </div>
