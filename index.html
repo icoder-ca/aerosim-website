@@ -44,6 +44,7 @@
             --accent-purple: #AF52DE;
             --gradient: linear-gradient(135deg, #007AFF, #AF52DE);
             --brand-gradient: linear-gradient(135deg, #1e6882, #5c2a2d);
+            color-scheme: dark;
         }
 
         html { scroll-behavior: smooth; }
@@ -993,7 +994,139 @@
             .b-hero .bento-visual .bento-emoji { font-size: 44px; }
             .bento-stat { font-size: 32px; }
         }
+        /* ============ THEME TOGGLE ============ */
+        .theme-toggle {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            font-size: 15px;
+            line-height: 1;
+            padding: 0;
+            flex-shrink: 0;
+        }
+        .theme-toggle:hover { background: rgba(255,255,255,0.12); }
+
+        .footer-tagline { color: rgba(255,255,255,0.3); }
+        .footer-link { color: var(--text-secondary); text-decoration: none; font-size: 13px; transition: color 0.2s ease; }
+        .footer-link:hover { color: var(--text); }
+
+        /* ============ LIGHT MODE ============ */
+        [data-theme="light"] {
+            --bg: #ffffff;
+            --surface: rgba(0,0,0,0.03);
+            --glass: rgba(0,0,0,0.05);
+            --glass-border: rgba(0,0,0,0.08);
+            --text: #1d1d1f;
+            --text-secondary: rgba(0,0,0,0.55);
+            color-scheme: light;
+        }
+
+        [data-theme="light"] nav {
+            background: rgba(255,255,255,0.72);
+            border-color: rgba(0,0,0,0.08);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.6);
+        }
+        [data-theme="light"] nav:hover {
+            background: rgba(255,255,255,0.85);
+            border-color: rgba(0,0,0,0.12);
+        }
+        [data-theme="light"] .nav-links a:hover { background: rgba(0,0,0,0.05); }
+        [data-theme="light"] .nav-mobile-toggle { color: #1d1d1f; }
+        [data-theme="light"] .theme-toggle:hover { background: rgba(0,0,0,0.08); }
+
+        [data-theme="light"] .hero-badge { backdrop-filter: blur(20px) saturate(120%); }
+
+        [data-theme="light"] .btn-secondary { color: #1d1d1f; }
+        [data-theme="light"] .btn-secondary:hover { background: rgba(0,0,0,0.08); }
+
+        [data-theme="light"] .phone-mockup {
+            border-color: rgba(0,0,0,0.1);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.5);
+        }
+
+        [data-theme="light"] .bento-card { background: #f5f5f7 !important; }
+        [data-theme="light"] .b-hero { background: linear-gradient(145deg, #e8f0fa 0%, #f5f5f7 100%) !important; }
+        [data-theme="light"] .bento-tint-blue { background: linear-gradient(165deg, rgba(0,122,255,0.08) 0%, #f5f5f7 60%) !important; }
+        [data-theme="light"] .bento-tint-teal { background: linear-gradient(165deg, rgba(90,143,160,0.1) 0%, #f5f5f7 60%) !important; }
+        [data-theme="light"] .bento-tint-red { background: linear-gradient(165deg, rgba(139,58,58,0.08) 0%, #f5f5f7 60%) !important; }
+        [data-theme="light"] .bento-tint-green { background: linear-gradient(165deg, rgba(52,199,89,0.08) 0%, #f5f5f7 60%) !important; }
+        [data-theme="light"] .bento-tint-purple { background: linear-gradient(165deg, rgba(175,82,222,0.08) 0%, #f5f5f7 60%) !important; }
+        [data-theme="light"] .bento-tint-gold { background: linear-gradient(165deg, rgba(210,170,60,0.08) 0%, #f5f5f7 60%) !important; }
+        [data-theme="light"] .b-fiveg { background: linear-gradient(165deg, rgba(139,58,58,0.08) 0%, #f5f5f7 60%) !important; }
+        [data-theme="light"] .b-bucks { background: linear-gradient(165deg, rgba(210,170,60,0.08) 0%, #f5f5f7 60%) !important; }
+        [data-theme="light"] .b-stat190 { background: linear-gradient(165deg, rgba(90,143,160,0.08) 0%, #f5f5f7 60%) !important; }
+
+        [data-theme="light"] .bento-card .bento-label { color: rgba(0,0,0,0.35) !important; }
+        [data-theme="light"] .bento-card h3 { color: #1d1d1f !important; }
+        [data-theme="light"] .bento-card p { color: rgba(0,0,0,0.5) !important; }
+        [data-theme="light"] .bento-card .bento-visual .bento-emoji { filter: drop-shadow(0 4px 20px rgba(0,0,0,0.08)); }
+
+        [data-theme="light"] .bento-card .hl-blue { color: #0071e3 !important; }
+        [data-theme="light"] .bento-card .hl-teal { color: #1d6d84 !important; }
+        [data-theme="light"] .bento-card .hl-red { color: #b33a3a !important; }
+        [data-theme="light"] .bento-card .hl-green { color: #248a3d !important; }
+        [data-theme="light"] .bento-card .hl-purple { color: #9b30d9 !important; }
+        [data-theme="light"] .bento-card .hl-gold { color: #a07600 !important; }
+
+        [data-theme="light"] .b-ios svg path,
+        [data-theme="light"] .b-ios svg text { fill: #1d1d1f; }
+
+        [data-theme="light"] .stat-card:hover { background: rgba(0,0,0,0.04); }
+        [data-theme="light"] .region-pill:hover { background: rgba(0,0,0,0.07); }
+        [data-theme="light"] .tier-card:hover { background: rgba(0,0,0,0.04); }
+
+        [data-theme="light"] .flight-feature-icon {
+            background: rgba(0,0,0,0.04);
+            border-color: rgba(0,0,0,0.06);
+        }
+
+        [data-theme="light"] .showcase-phone {
+            box-shadow: 0 24px 64px rgba(0,0,0,0.08);
+            border-color: rgba(0,0,0,0.1);
+        }
+
+        [data-theme="light"] .support-fab-btn {
+            background: #ffffff;
+            border-color: rgba(0,0,0,0.1);
+            color: #1d1d1f;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        [data-theme="light"] .support-fab-btn:hover { background: rgba(0,0,0,0.04); }
+
+        [data-theme="light"] .support-panel {
+            background: #ffffff;
+            border-color: rgba(0,0,0,0.1);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+        }
+        [data-theme="light"] .support-panel h4 { color: #1d1d1f; }
+        [data-theme="light"] .support-panel .support-sub { color: rgba(0,0,0,0.4); }
+        [data-theme="light"] .support-panel input,
+        [data-theme="light"] .support-panel textarea {
+            border-color: rgba(0,0,0,0.1);
+            background: rgba(0,0,0,0.03);
+            color: #1d1d1f;
+        }
+        [data-theme="light"] .support-panel input:focus,
+        [data-theme="light"] .support-panel textarea:focus { border-color: rgba(0,0,0,0.2); }
+        [data-theme="light"] .support-panel input::placeholder,
+        [data-theme="light"] .support-panel textarea::placeholder { color: rgba(0,0,0,0.3); }
+
+        [data-theme="light"] .footer-tagline { color: rgba(0,0,0,0.3); }
+
+        @media (max-width: 900px) {
+            [data-theme="light"] .nav-links.open {
+                background: rgba(255,255,255,0.95);
+            }
+        }
     </style>
+    <script>(function(){var t=localStorage.getItem('aerosim-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})()</script>
 </head>
 <body>
 
@@ -1010,6 +1143,7 @@
         <a href="#" onclick="event.preventDefault();document.getElementById('supportPanel').classList.toggle('open');">Support</a>
         <a href="#download" class="cta">Download on iOS</a>
     </div>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"><span class="theme-icon">☀️</span></button>
     <button class="nav-mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">☰</button>
 </nav>
 
@@ -1381,10 +1515,10 @@
                 <img src="assets/aerosim.png" alt="AeroSIM">
                 <span>AeroSIM</span>
             </div>
-            <div style="color: rgba(255,255,255,0.3); font-size: 12px; padding-left: 40px;">Developed in Calgary, Canada 🍁</div>
+            <div class="footer-tagline" style="font-size: 12px; padding-left: 40px;">Developed in Calgary, Canada 🍁</div>
         </div>
         <div style="display: flex; align-items: center; gap: 24px;">
-            <a href="policy.html" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px; transition: color 0.2s ease;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">Terms &amp; Privacy</a>
+            <a href="policy.html" class="footer-link">Terms &amp; Privacy</a>
             <span class="footer-text">© 2026 AeroSIM. All rights reserved.</span>
         </div>
     </div>
@@ -1412,6 +1546,21 @@
             }
         });
     });
+
+    function toggleTheme() {
+        var html = document.documentElement;
+        var next = html.getAttribute('data-theme') === 'light' ? null : 'light';
+        if (next) html.setAttribute('data-theme', 'light');
+        else html.removeAttribute('data-theme');
+        localStorage.setItem('aerosim-theme', next ? 'light' : 'dark');
+        document.querySelector('.theme-icon').textContent = next ? '🌙' : '☀️';
+    }
+
+    (function() {
+        var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        var icon = document.querySelector('.theme-icon');
+        if (icon) icon.textContent = isLight ? '🌙' : '☀️';
+    })();
 </script>
 
 </body>

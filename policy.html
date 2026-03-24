@@ -23,6 +23,7 @@
             --accent-purple: #AF52DE;
             --gradient: linear-gradient(135deg, #007AFF, #AF52DE);
             --brand-gradient: linear-gradient(135deg, #1e6882, #5c2a2d);
+            color-scheme: dark;
         }
         html { scroll-behavior: smooth; }
         body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
@@ -60,6 +61,52 @@
         .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 13px; transition: color 0.2s ease; }
         .footer-links a:hover { color: var(--text); }
         .footer-text { color: var(--text-secondary); font-size: 13px; }
+        .theme-toggle {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            font-size: 15px;
+            line-height: 1;
+            padding: 0;
+            flex-shrink: 0;
+        }
+        .theme-toggle:hover { background: rgba(255,255,255,0.12); }
+
+        .footer-tagline { color: rgba(255,255,255,0.3); }
+
+        [data-theme="light"] {
+            --bg: #ffffff;
+            --surface: rgba(0,0,0,0.03);
+            --glass: rgba(0,0,0,0.05);
+            --glass-border: rgba(0,0,0,0.08);
+            --text: #1d1d1f;
+            --text-secondary: rgba(0,0,0,0.55);
+            color-scheme: light;
+        }
+        [data-theme="light"] nav {
+            background: rgba(255,255,255,0.72);
+            border-color: rgba(0,0,0,0.08);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.6);
+        }
+        [data-theme="light"] nav:hover {
+            background: rgba(255,255,255,0.85);
+            border-color: rgba(0,0,0,0.12);
+        }
+        [data-theme="light"] .nav-links a:hover { background: rgba(0,0,0,0.05); }
+        [data-theme="light"] .nav-mobile-toggle { color: #1d1d1f; }
+        [data-theme="light"] .theme-toggle:hover { background: rgba(0,0,0,0.08); }
+        [data-theme="light"] .policy-nav a:hover { background: rgba(0,0,0,0.06); }
+        [data-theme="light"] .footer-tagline { color: rgba(0,0,0,0.3); }
+        [data-theme="light"] .footer-links a { color: rgba(0,0,0,0.55); }
+        [data-theme="light"] .footer-links a:hover { color: #1d1d1f; }
+
         @media (max-width: 900px) {
             nav { gap: 16px; padding: 10px 20px; }
             .nav-links { display: none; }
@@ -67,8 +114,10 @@
             .nav-mobile-toggle { display: block; }
             .policy-nav { flex-direction: column; align-items: stretch; }
             .footer-content { flex-direction: column; gap: 16px; }
+            [data-theme="light"] .nav-links.open { background: rgba(255,255,255,0.95); }
         }
     </style>
+    <script>(function(){var t=localStorage.getItem('aerosim-theme');if(t==='light')document.documentElement.setAttribute('data-theme','light');})()</script>
 </head>
 <body>
 
@@ -82,6 +131,7 @@
         <a href="#terms">Terms</a>
         <a href="#privacy">Privacy</a>
     </div>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"><span class="theme-icon">☀️</span></button>
     <button class="nav-mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">&#9776;</button>
 </nav>
 
@@ -276,12 +326,28 @@
                 <img src="assets/aerosim.png" alt="AeroSIM">
                 <span>AeroSIM</span>
             </div>
-            <div style="color: rgba(255,255,255,0.3); font-size: 12px; padding-left: 40px;">Developed in Calgary, Canada &#127809;</div>
+            <div class="footer-tagline" style="font-size: 12px; padding-left: 40px;">Developed in Calgary, Canada &#127809;</div>
         </div>
         <div class="footer-links"><a href="policy.html">Terms &amp; Privacy</a></div>
         <div class="footer-text">&copy; 2026 AeroSIM. All rights reserved.</div>
     </div>
 </footer>
+
+<script>
+    function toggleTheme() {
+        var html = document.documentElement;
+        var next = html.getAttribute('data-theme') === 'light' ? null : 'light';
+        if (next) html.setAttribute('data-theme', 'light');
+        else html.removeAttribute('data-theme');
+        localStorage.setItem('aerosim-theme', next ? 'light' : 'dark');
+        document.querySelector('.theme-icon').textContent = next ? '🌙' : '☀️';
+    }
+    (function() {
+        var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        var icon = document.querySelector('.theme-icon');
+        if (icon) icon.textContent = isLight ? '🌙' : '☀️';
+    })();
+</script>
 
 </body>
 </html>
