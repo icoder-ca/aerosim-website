@@ -128,6 +128,7 @@
             color: white;
             font-weight: 600;
             padding: 8px 20px;
+            white-space: nowrap;
         }
 
         .nav-links .cta:hover { opacity: 0.9; background: var(--gradient); }
@@ -204,12 +205,12 @@
             50% { transform: scale(1.15); }
         }
 
-        .pulse-tower {
-            animation: pulse-tower 2.5s ease-in-out infinite;
+        .antenna-breathe {
+            animation: breathe 4s ease-in-out infinite;
         }
-        @keyframes pulse-tower {
-            0%, 100% { opacity: 0.7; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.08); }
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); opacity: 0.82; }
+            50% { transform: scale(1.05); opacity: 1; }
         }
 
         .hero h1 {
@@ -417,8 +418,9 @@
         }
 
         .bento-card .bento-visual .bento-emoji {
-            font-size: 44px;
-            filter: drop-shadow(0 4px 20px rgba(0,0,0,0.4));
+            font-size: 100px;
+            line-height: 1;
+            filter: drop-shadow(0 6px 24px rgba(0,0,0,0.4));
         }
 
         .bento-card .bento-label {
@@ -448,7 +450,7 @@
         .b-hero {
             background: linear-gradient(145deg, #0c1a2e 0%, #111113 100%);
         }
-        .b-hero .bento-visual .bento-emoji { font-size: 64px; }
+        .b-hero .bento-visual .bento-emoji { font-size: 100px; }
         .b-hero h3 { font-size: 26px; }
 
         .bento-tint-blue { background: linear-gradient(165deg, rgba(0,122,255,0.12) 0%, #111113 60%); }
@@ -798,7 +800,7 @@
         .support-panel {
             display: none;
             position: absolute;
-            bottom: 64px;
+            bottom: calc(100% + 12px);
             right: 0;
             width: 300px;
             background: #111113;
@@ -958,8 +960,9 @@
             .bento-card { padding: 22px 20px; border-radius: 16px; }
             .bento-card h3 { font-size: 18px; }
             .b-hero h3 { font-size: 22px; }
-            .bento-card .bento-visual .bento-emoji { font-size: 36px; }
-            .b-hero .bento-visual .bento-emoji { font-size: 52px; }
+            .bento-card .bento-visual .bento-emoji { font-size: 72px; }
+            .b-hero .bento-visual .bento-emoji { font-size: 80px; }
+            .b-fiveg .antenna-breathe { width: 72px; height: 72px; }
             .bento-stat { font-size: 36px; }
             .steps { grid-template-columns: 1fr; gap: 32px; }
             .coverage-stats { grid-template-columns: repeat(2, 1fr); }
@@ -990,28 +993,18 @@
             .bento-card p { font-size: 12px; }
             .bento-card .bento-label { font-size: 9px; }
             .bento-card .bento-visual { padding-bottom: 8px; }
-            .bento-card .bento-visual .bento-emoji { font-size: 32px; }
-            .b-hero .bento-visual .bento-emoji { font-size: 44px; }
+            .bento-card .bento-visual .bento-emoji { font-size: 56px; }
+            .b-hero .bento-visual .bento-emoji { font-size: 64px; }
+            .b-fiveg .antenna-breathe { width: 56px; height: 56px; }
             .bento-stat { font-size: 32px; }
         }
-        /* ============ THEME TOGGLE ============ */
-        .theme-toggle {
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
+        /* ============ FAB STACK ============ */
+        .fab-stack {
             display: flex;
+            flex-direction: column;
+            gap: 12px;
             align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            font-size: 15px;
-            line-height: 1;
-            padding: 0;
-            flex-shrink: 0;
         }
-        .theme-toggle:hover { background: rgba(255,255,255,0.12); }
 
         .footer-tagline { color: rgba(255,255,255,0.3); }
         .footer-link { color: var(--text-secondary); text-decoration: none; font-size: 13px; transition: color 0.2s ease; }
@@ -1039,7 +1032,25 @@
         }
         [data-theme="light"] .nav-links a:hover { background: rgba(0,0,0,0.05); }
         [data-theme="light"] .nav-mobile-toggle { color: #1d1d1f; }
-        [data-theme="light"] .theme-toggle:hover { background: rgba(0,0,0,0.08); }
+
+        [data-theme="light"] .hero::before {
+            background: radial-gradient(circle, rgba(0,122,255,0.22) 0%, transparent 70%);
+        }
+        [data-theme="light"] .hero::after {
+            background: radial-gradient(circle, rgba(175,82,222,0.16) 0%, transparent 70%);
+        }
+        [data-theme="light"] .how-it-works {
+            background: linear-gradient(180deg, var(--bg) 0%, rgba(0,122,255,0.08) 50%, var(--bg) 100%);
+        }
+        [data-theme="light"] #aerobucks {
+            background: linear-gradient(180deg, var(--bg) 0%, rgba(175,82,222,0.1) 50%, var(--bg) 100%);
+        }
+        [data-theme="light"] .showcase {
+            background: linear-gradient(180deg, var(--bg) 0%, rgba(0,122,255,0.1) 50%, var(--bg) 100%);
+        }
+        [data-theme="light"] .final-cta::before {
+            background: radial-gradient(circle, rgba(0,122,255,0.18) 0%, transparent 70%);
+        }
 
         [data-theme="light"] .hero-badge { backdrop-filter: blur(20px) saturate(120%); }
 
@@ -1052,16 +1063,16 @@
         }
 
         [data-theme="light"] .bento-card { background: #f5f5f7 !important; }
-        [data-theme="light"] .b-hero { background: linear-gradient(145deg, #e8f0fa 0%, #f5f5f7 100%) !important; }
-        [data-theme="light"] .bento-tint-blue { background: linear-gradient(165deg, rgba(0,122,255,0.08) 0%, #f5f5f7 60%) !important; }
-        [data-theme="light"] .bento-tint-teal { background: linear-gradient(165deg, rgba(90,143,160,0.1) 0%, #f5f5f7 60%) !important; }
-        [data-theme="light"] .bento-tint-red { background: linear-gradient(165deg, rgba(139,58,58,0.08) 0%, #f5f5f7 60%) !important; }
-        [data-theme="light"] .bento-tint-green { background: linear-gradient(165deg, rgba(52,199,89,0.08) 0%, #f5f5f7 60%) !important; }
-        [data-theme="light"] .bento-tint-purple { background: linear-gradient(165deg, rgba(175,82,222,0.08) 0%, #f5f5f7 60%) !important; }
-        [data-theme="light"] .bento-tint-gold { background: linear-gradient(165deg, rgba(210,170,60,0.08) 0%, #f5f5f7 60%) !important; }
-        [data-theme="light"] .b-fiveg { background: linear-gradient(165deg, rgba(139,58,58,0.08) 0%, #f5f5f7 60%) !important; }
-        [data-theme="light"] .b-bucks { background: linear-gradient(165deg, rgba(210,170,60,0.08) 0%, #f5f5f7 60%) !important; }
-        [data-theme="light"] .b-stat190 { background: linear-gradient(165deg, rgba(90,143,160,0.08) 0%, #f5f5f7 60%) !important; }
+        [data-theme="light"] .b-hero { background: linear-gradient(145deg, #dce8fa 0%, #f5f5f7 100%) !important; }
+        [data-theme="light"] .bento-tint-blue { background: linear-gradient(165deg, rgba(0,122,255,0.16) 0%, #f5f5f7 65%) !important; }
+        [data-theme="light"] .bento-tint-teal { background: linear-gradient(165deg, rgba(90,143,160,0.18) 0%, #f5f5f7 65%) !important; }
+        [data-theme="light"] .bento-tint-red { background: linear-gradient(165deg, rgba(139,58,58,0.16) 0%, #f5f5f7 65%) !important; }
+        [data-theme="light"] .bento-tint-green { background: linear-gradient(165deg, rgba(52,199,89,0.16) 0%, #f5f5f7 65%) !important; }
+        [data-theme="light"] .bento-tint-purple { background: linear-gradient(165deg, rgba(175,82,222,0.16) 0%, #f5f5f7 65%) !important; }
+        [data-theme="light"] .bento-tint-gold { background: linear-gradient(165deg, rgba(210,170,60,0.16) 0%, #f5f5f7 65%) !important; }
+        [data-theme="light"] .b-fiveg { background: linear-gradient(165deg, rgba(52,199,89,0.16) 0%, #f5f5f7 65%) !important; }
+        [data-theme="light"] .b-bucks { background: linear-gradient(165deg, rgba(210,170,60,0.16) 0%, #f5f5f7 65%) !important; }
+        [data-theme="light"] .b-stat190 { background: linear-gradient(165deg, rgba(90,143,160,0.16) 0%, #f5f5f7 65%) !important; }
 
         [data-theme="light"] .bento-card .bento-label { color: rgba(0,0,0,0.35) !important; }
         [data-theme="light"] .bento-card h3 { color: #1d1d1f !important; }
@@ -1143,7 +1154,6 @@
         <a href="#" onclick="event.preventDefault();document.getElementById('supportPanel').classList.toggle('open');">Support</a>
         <a href="#download" class="cta">Download on iOS</a>
     </div>
-    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"><span class="theme-icon">☀️</span></button>
     <button class="nav-mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">☰</button>
 </nav>
 
@@ -1240,33 +1250,11 @@
                 <h3>Always-on <span class="hl-purple">data.</span></h3>
             </div>
 
-            <div class="bento-card b-fiveg reveal reveal-delay-2" style="background: linear-gradient(165deg, rgba(139,58,58,0.1) 0%, #111113 60%);">
+            <div class="bento-card b-fiveg bento-tint-green reveal reveal-delay-2">
                 <div class="bento-visual" style="flex-direction: column; gap: 8px;">
-                    <svg class="pulse-tower" width="44" height="44" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Tower base -->
-                        <path d="M13.5 28h5" stroke="url(#ag)" stroke-width="1.8" stroke-linecap="round"/>
-                        <!-- Tower legs -->
-                        <path d="M14.5 28L15.2 18" stroke="url(#ag)" stroke-width="1.5" stroke-linecap="round"/>
-                        <path d="M17.5 28L16.8 18" stroke="url(#ag)" stroke-width="1.5" stroke-linecap="round"/>
-                        <!-- Tower body -->
-                        <rect x="15" y="12" width="2" height="6.5" rx="1" fill="url(#ag)"/>
-                        <!-- Tower top / antenna tip -->
-                        <rect x="15.5" y="9" width="1" height="3.5" rx="0.5" fill="url(#ag)"/>
-                        <circle cx="16" cy="8.5" r="1.2" fill="url(#ag)"/>
-                        <!-- Cross beams -->
-                        <path d="M14.8 22L17.2 20" stroke="url(#ag)" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
-                        <path d="M14.8 20L17.2 22" stroke="url(#ag)" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
-                        <path d="M15 25L17 23.5" stroke="url(#ag)" stroke-width="0.8" stroke-linecap="round" opacity="0.4"/>
-                        <path d="M15 23.5L17 25" stroke="url(#ag)" stroke-width="0.8" stroke-linecap="round" opacity="0.4"/>
-                        <!-- Radio waves left -->
-                        <path d="M12.5 13.5c-0.8-1-1.2-2.2-1.2-3.5" stroke="url(#ag)" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/>
-                        <path d="M10.5 15c-1.2-1.5-1.9-3.4-1.9-5.5" stroke="url(#ag)" stroke-width="1.5" stroke-linecap="round" opacity="0.55"/>
-                        <path d="M8.5 16.5c-1.5-2-2.4-4.5-2.4-7.2" stroke="url(#ag)" stroke-width="1.5" stroke-linecap="round" opacity="0.25"/>
-                        <!-- Radio waves right -->
-                        <path d="M19.5 13.5c0.8-1 1.2-2.2 1.2-3.5" stroke="url(#ag)" stroke-width="1.5" stroke-linecap="round" opacity="0.9"/>
-                        <path d="M21.5 15c1.2-1.5 1.9-3.4 1.9-5.5" stroke="url(#ag)" stroke-width="1.5" stroke-linecap="round" opacity="0.55"/>
-                        <path d="M23.5 16.5c1.5-2 2.4-4.5 2.4-7.2" stroke="url(#ag)" stroke-width="1.5" stroke-linecap="round" opacity="0.25"/>
-                        <defs><linearGradient id="ag" x1="6" y1="6" x2="26" y2="28"><stop stop-color="#5AC8FA"/><stop offset="1" stop-color="#C45C5C"/></linearGradient></defs>
+                    <svg class="antenna-breathe" width="100" height="100" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+                        <defs><linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#6EE77A"/><stop offset="100%" stop-color="#1B8E36"/></linearGradient></defs>
+                        <path fill="url(#greenGrad)" d="M 43.8321 39.0391 C 44.5821 39.9062 45.8946 39.9062 46.7852 38.9219 C 50.6756 34.7031 52.8788 29.0781 52.8788 23.0078 C 52.8788 16.9375 50.6756 11.3125 46.7852 7.0938 C 45.8946 6.1094 44.5821 6.1094 43.8321 6.9765 C 43.0821 7.8203 43.2930 8.9219 44.1602 9.8828 C 47.3007 13.3750 49.0585 17.9687 49.0585 23.0078 C 49.0585 28.0469 47.3007 32.6406 44.1602 36.1328 C 43.2930 37.0938 43.0821 38.1953 43.8321 39.0391 Z M 12.1681 39.0391 C 12.9181 38.1953 12.6837 37.0938 11.8399 36.1328 C 8.6993 32.6406 6.9415 28.0469 6.9415 23.0078 C 6.9415 17.9687 8.6993 13.3750 11.8399 9.8828 C 12.6837 8.9219 12.9181 7.8203 12.1681 6.9765 C 11.4181 6.1094 10.1055 6.1094 9.1915 7.0938 C 5.3008 11.3125 3.1212 16.9375 3.1212 23.0078 C 3.1212 29.0781 5.3008 34.7031 9.1915 38.9219 C 10.1055 39.9062 11.4181 39.9062 12.1681 39.0391 Z M 19.1993 32.3594 C 19.9493 31.5156 19.6212 30.4609 18.8946 29.4531 C 17.4884 27.7187 16.7852 25.4453 16.7852 23.0078 C 16.7852 20.5703 17.5352 18.3672 18.8946 16.5625 C 19.6212 15.5313 19.9493 14.5000 19.1993 13.6562 C 18.4259 12.7656 17.0196 12.7422 16.1993 13.8203 C 14.1602 16.3516 12.9649 19.5625 12.9649 23.0078 C 12.9649 26.4531 14.1602 29.6641 16.1993 32.1953 C 17.0196 33.2734 18.4259 33.2500 19.1993 32.3594 Z M 36.7774 32.3594 C 37.5743 33.2500 38.9571 33.2734 39.8008 32.1953 C 41.8399 29.6641 43.0118 26.4531 43.0118 23.0078 C 43.0118 19.5625 41.8399 16.3516 39.8008 13.8203 C 38.9571 12.7422 37.5743 12.7656 36.7774 13.6562 C 36.0274 14.5000 36.3555 15.5313 37.0821 16.5625 C 38.4415 18.3672 39.1915 20.5703 39.1915 23.0078 C 39.1915 25.4453 38.4884 27.7187 37.0821 29.4531 C 36.3555 30.4609 36.0274 31.5156 36.7774 32.3594 Z M 27.9884 49.8906 C 29.1134 49.8906 29.7930 49.0937 29.7930 47.875 L 29.7930 26.8281 C 31.2228 26.1484 32.2071 24.6953 32.2071 23.0078 C 32.2071 20.6641 30.3555 18.7656 27.9884 18.7656 C 25.6446 18.7656 23.7930 20.6641 23.7930 23.0078 C 23.7930 24.6953 24.7540 26.1484 26.2071 26.8281 L 26.2071 47.875 C 26.2071 49.0703 26.9337 49.8906 27.9884 49.8906 Z"/>
                     </svg>
                     <div class="bento-stat" style="background: var(--brand-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">5G</div>
                 </div>
@@ -1276,7 +1264,7 @@
 
             <div class="bento-card b-flight bento-tint-red reveal reveal-delay-1">
                 <div class="bento-visual" style="flex-direction: column; gap: 8px;">
-                    <span class="bento-emoji" style="font-size:52px;">✈️</span>
+                    <span class="bento-emoji">✈️</span>
                     <div class="bento-stat hl-red">Live</div>
                 </div>
                 <div class="bento-label">Flight Tracking</div>
@@ -1286,7 +1274,7 @@
 
             <div class="bento-card b-bucks reveal reveal-delay-2" style="background: linear-gradient(165deg, rgba(210,170,60,0.12) 0%, #111113 60%);">
                 <div class="bento-visual" style="flex-direction: column; gap: 8px;">
-                    <span class="bento-emoji" style="font-size:52px;">🪙</span>
+                    <span class="bento-emoji">🪙</span>
                     <div class="bento-stat hl-gold">3x</div>
                 </div>
                 <div class="bento-label">AeroBucks</div>
@@ -1296,7 +1284,7 @@
 
             <div class="bento-card b-stat190 reveal reveal-delay-2" style="background: linear-gradient(165deg, rgba(90,143,160,0.1) 0%, #111113 60%);">
                 <div class="bento-visual" style="flex-direction: column; gap: 8px;">
-                    <span style="font-size: 36px;">🌎</span>
+                    <span class="bento-emoji">🌎</span>
                     <div class="bento-stat" style="background: var(--brand-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"><span class="hl-teal">Global.</span></div>
                 </div>
                 <h3>190+ countries covered.</h3>
@@ -1493,7 +1481,7 @@
     <a href="#" class="btn-primary reveal reveal-delay-2" style="font-size: 16px;">Get Started Free</a>
 </section>
 
-<!-- ============ SUPPORT WIDGET ============ -->
+<!-- ============ SUPPORT WIDGET + THEME TOGGLE ============ -->
 <div class="support-fab" id="supportWidget">
     <div class="support-panel" id="supportPanel">
         <h4>Need help?</h4>
@@ -1504,7 +1492,10 @@
             <button type="submit">Submit</button>
         </form>
     </div>
-    <button class="support-fab-btn" onclick="document.getElementById('supportPanel').classList.toggle('open')" aria-label="Support">💬</button>
+    <div class="fab-stack">
+        <button class="support-fab-btn" onclick="toggleTheme()" aria-label="Toggle theme"><span class="theme-icon">☀️</span></button>
+        <button class="support-fab-btn" onclick="document.getElementById('supportPanel').classList.toggle('open')" aria-label="Support">💬</button>
+    </div>
 </div>
 
 <!-- ============ FOOTER ============ -->

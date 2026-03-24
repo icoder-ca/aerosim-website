@@ -61,23 +61,31 @@
         .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 13px; transition: color 0.2s ease; }
         .footer-links a:hover { color: var(--text); }
         .footer-text { color: var(--text-secondary); font-size: 13px; }
-        .theme-toggle {
-            background: var(--glass);
-            border: 1px solid var(--glass-border);
-            width: 34px;
-            height: 34px;
+        .theme-fab {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 999;
+        }
+        .theme-fab-btn {
+            width: 52px;
+            height: 52px;
             border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: #111113;
+            color: #fff;
+            font-size: 22px;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            font-size: 15px;
-            line-height: 1;
-            padding: 0;
-            flex-shrink: 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease, background 0.3s ease;
         }
-        .theme-toggle:hover { background: rgba(255,255,255,0.12); }
+        .theme-fab-btn:hover {
+            transform: scale(1.08);
+            background: rgba(255,255,255,0.08);
+        }
 
         .footer-tagline { color: rgba(255,255,255,0.3); }
 
@@ -101,8 +109,14 @@
         }
         [data-theme="light"] .nav-links a:hover { background: rgba(0,0,0,0.05); }
         [data-theme="light"] .nav-mobile-toggle { color: #1d1d1f; }
-        [data-theme="light"] .theme-toggle:hover { background: rgba(0,0,0,0.08); }
         [data-theme="light"] .policy-nav a:hover { background: rgba(0,0,0,0.06); }
+        [data-theme="light"] .theme-fab-btn {
+            background: #ffffff;
+            border-color: rgba(0,0,0,0.1);
+            color: #1d1d1f;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        [data-theme="light"] .theme-fab-btn:hover { background: rgba(0,0,0,0.04); }
         [data-theme="light"] .footer-tagline { color: rgba(0,0,0,0.3); }
         [data-theme="light"] .footer-links a { color: rgba(0,0,0,0.55); }
         [data-theme="light"] .footer-links a:hover { color: #1d1d1f; }
@@ -131,7 +145,6 @@
         <a href="#terms">Terms</a>
         <a href="#privacy">Privacy</a>
     </div>
-    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"><span class="theme-icon">☀️</span></button>
     <button class="nav-mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">&#9776;</button>
 </nav>
 
@@ -317,6 +330,10 @@
             <li><strong>Website:</strong> <a href="https://aerosim.global">aerosim.global</a></li>
         </ul>
     </section>
+</div>
+
+<div class="theme-fab">
+    <button class="theme-fab-btn" onclick="toggleTheme()" aria-label="Toggle theme"><span class="theme-icon">☀️</span></button>
 </div>
 
 <footer>
